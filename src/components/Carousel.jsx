@@ -10,9 +10,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
+import useFetch from '../hooks/useFetch';
 
 const Carousel = () => {
-    const banners = [b1, b2, b3, b4, b1];
+    // const banners = [b1, b2, b3, b4, b1];
+    const { data: banners, error, loading } = useFetch('https://livesportapi.online/api/banner');
+    // console.log('banner', banners)
     return (
         <div>
             <Swiper
@@ -29,9 +32,9 @@ const Carousel = () => {
                 className="mySwiper"
             >
 
-                {banners.map((item) => {
-                    return <SwiperSlide className='p-2 p-sm-3'>
-                        <img className='bannerImg  rounded-4' src={item} />
+                {banners?.map((item, index) => {
+                    return <SwiperSlide key={index} className='p-2 p-sm-3'>
+                        <img className='bannerImg  rounded-4' src={item.img_url} />
                     </SwiperSlide>
                 })}
             </Swiper>

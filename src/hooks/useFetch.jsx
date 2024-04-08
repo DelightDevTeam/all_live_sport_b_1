@@ -15,27 +15,27 @@ const useFetch = (url) => {
         fetch(url, {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'Authorization' : "Bearer " + localStorage.getItem('authToken')
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('authToken')
             },
             signal
         })
-        .then(res => {
-            if (!res.ok) {
-                throw Error("Something Went Wrong!");
-            }
-            return res.json();
-        })
-        .then(data => {
-            setData(data.data);
-            setLoading(false);
-        })
-        .catch(e => {
-            setError(e.message);
-            setLoading(false);
-            // navigate('/login');
-        });
+            .then(res => {
+                if (!res.ok) {
+                    throw Error("Something Went Wrong!");
+                }
+                return res.json();
+            })
+            .then(data => {
+                setData(data.data);
+                setLoading(false);
+            })
+            .catch(e => {
+                setError(e.message);
+                setLoading(false);
+                // navigate('/login');
+            });
 
         // Cleanup function
         return () => {
