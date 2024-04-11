@@ -1,9 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../assets/css/history.css'
+import { useNavigate } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+import BASE_URL from '../hooks/baseURL';
 
 
 const GameLog = () => {
+    let auth = localStorage.getItem("token");
+    let lan = localStorage.getItem("lang");
+    let navigate = useNavigate();
+      useEffect(() => {
+        if (!auth) {
+          navigate("/login");
+        }
+      }, [navigate]);
+    
+    const [url, setUrl] = useState("/wager-logs?type=");
     const [param, setParam] = useState("today");
+    const {data: logs, loading, error} = useFetch(BASE_URL+url+param);
+    // console.log(logs);
+    // const [param, setParam] = useState("today");
     return (
         <div className='py-4 container history' style={{ minHeight: '50vh' }}>
             <h3 className="mb-4 mb-sm-5  text-center text-light gradient-text">Game Log</h3>
@@ -30,23 +46,23 @@ const GameLog = () => {
                     <thead>
                         <tr>
                             <th>နံပါတ်</th>
-                            {/* <th>ဂိမ်းအခြေအနေ</th> */}
-                            <th>အပိတ်လက်ကျန်</th>
-                            <th>အမျိုးအစား</th>
+                            <th>ဂိမ်းအခြေအနေ</th>
+                            {/* <th>အပိတ်လက်ကျန်</th> */}
+                            {/* <th>အမျိုးအစား</th> */}
                             <th>ပမာဏ (ကျပ်)</th>
                             <th>အချိန်</th>
                         </tr>
 
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            {/* <th>ဂိမ်းအခြေအနေ</th> */}
-                            <td>400</td>
-                            <td>Slot</td>
-                            <td>500</td>
-                            <td>12:00</td>
-                        </tr>
+                        {logs && logs.map((log, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{log.status}</td>
+                                <td>{log.amount}</td>
+                                <td>{log.datetime}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
 

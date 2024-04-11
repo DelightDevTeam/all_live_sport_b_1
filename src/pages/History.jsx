@@ -1,9 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../assets/css/history.css'
+import { useNavigate } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+import BASE_URL from '../hooks/baseURL';
 
 
 const History = () => {
+    let auth = localStorage.getItem("token");
+    let lan = localStorage.getItem("lang");
+    let navigate = useNavigate();
+      useEffect(() => {
+        if (!auth) {
+          navigate("/login");
+        }
+      }, [navigate]);
+    
+    const [url, setUrl] = useState("/transactions?type=");
     const [param, setParam] = useState("today");
+    const {data: logs, loading, error} = useFetch(BASE_URL+url+param);
+    console.log(logs);
+
     return (
         <div className='py-4 container history' style={{ minHeight: '50vh' }}>
             <h1 className="mb-4 mb-sm-5 text-center gradient-text">History</h1>
@@ -39,14 +55,17 @@ const History = () => {
 
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            {/* <th>ဂိမ်းအခြေအနေ</th> */}
-                            <td>400</td>
-                            <td>Slot</td>
-                            <td>500</td>
-                            <td>12:00</td>
-                        </tr>
+                        {logs && logs.map((log, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                {/* <th>ဂိမ်းအခြေအနေ</th> */}
+                                <td>{log.closing_balance}</td>
+                                <td>{log.type}</td>
+                                <td>{log.amount}</td>
+                                <td>{log.datetime}</td>
+
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
 

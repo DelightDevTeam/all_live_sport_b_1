@@ -9,6 +9,7 @@ import GameLog from "../pages/GameLog"
 import History from "../pages/History"
 import Profile from "../pages/Profile"
 import ChangePassword from "../pages/ChangePassword"
+import NewPlayerChangePassword from "../pages/NewPlayerChangePassword"
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/change-password',
                 element: <ChangePassword />,
             },
+            {
+                path: '/new-player-change-password',
+                element: <NewPlayerChangePassword />,
+            }
         ]
     }
 ])

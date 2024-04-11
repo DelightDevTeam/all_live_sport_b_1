@@ -77,11 +77,17 @@ const Login = () => {
           .then(data => {
             setData(data);
             setLoading(false);
-            if (data.data.token) {
-              localStorage.setItem('token', data.data.token);
-              navigate('/');
-            } else {
-              throw new Error('Token not found in response');
+            console.log(data.data.id);
+            if(data.data.is_changed_password === 0){
+              localStorage.setItem("auth", data.data.id)
+              navigate('/new-player-change-password');
+            }else{
+              if (data.data.token) {
+                localStorage.setItem('token', data.data.token);
+                navigate('/');
+              } else {
+                throw new Error('Token not found in response');
+              }
             }
           })
           .catch(error => {
