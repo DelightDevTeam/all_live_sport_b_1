@@ -3,10 +3,10 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 999;
     box-shadow: 0 -1px 3px rgb(0, 0, 0, 0.7);
     /* background: linear-gradient(to bottom, #630D93, #3A107D); */
-    background: #2B1C40;
+    background: linear-gradient(20deg, #3545a9, #2b3784 10%, #101f3e);
     cursor: pointer;
 
 }

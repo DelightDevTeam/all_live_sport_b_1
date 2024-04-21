@@ -9,8 +9,7 @@ body {
     font-family: "Orbitron", sans-serif;
     /* font-family: "Rubik", sans-serif; */
     /* background: #2B1C40; */
-    background: #2B1C40;
-    color: #fff;
+    background: linear-gradient(20deg, #3545a9, #2b3784 10%, #101f3e);    color: #fff;
 }
 
 .marqueeContainer {

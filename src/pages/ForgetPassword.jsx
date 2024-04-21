@@ -10,7 +10,7 @@ const ForgetPassword = () => {
         <>
             <div className="mt-5 d-flex justify-content-center align-items-center mb-5">
 
-                <div style={{ background: '#431e77', color: '#d0c7dd', borderRadius: '50px' }} className="py-5 px-3">
+                <div style={{  background:'#2b3784', color: '#d0c7dd', borderRadius: '50px' }} className="py-5 px-3">
                     {/* <div className="d-flex justify-content-center logins">
                     <img src={logo} alt="" />
                 </div> */}

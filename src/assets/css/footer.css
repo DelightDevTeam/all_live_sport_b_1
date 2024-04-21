@@ -1,5 +1,5 @@
 footer {
-    background: #3A2557;
+    background: #101F3E;
 }
 
 footer p {
@@ -30,7 +30,7 @@ footer h5 {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #111;
+    background: linear-gradient(20deg, #3545a9, #2b3784 10%, #101f3e);
 }
 
 
