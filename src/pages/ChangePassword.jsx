@@ -81,9 +81,9 @@ const ChangePassword = () => {
 
     return (
         <>
-            <div className="mt-sm-5 m d-flex justify-content-center align-items-center mb-5">
+            <div className="pt-4 pt-sm-0 mt-sm-5 m d-flex justify-content-center align-items-center mb-5">
 
-                <div style={{ background: '#431e77', color: '#d0c7dd', borderRadius: '50px' }} className="py-5 px-3 logins">
+                <div style={{   background:'#2b3784', color: '#d0c7dd', borderRadius: '50px' }} className="py-5 px-3 logins">
                     {/* <div className="d-flex justify-content-center logins">
                     <img src={logo} alt="" />
                 </div> */}

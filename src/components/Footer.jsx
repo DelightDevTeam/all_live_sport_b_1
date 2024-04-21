@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../assets/css/footer.css';
 import { NavLink } from 'react-router-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -14,6 +14,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
+   
     const menu = [
         { id: 1, title: 'Home', link: '/' },
         { id: 2, title: 'Promotion', link: '/promotion' },
@@ -37,7 +38,7 @@ const Footer = () => {
         <div className=" ">
             <h2 className='mb-4 footerTitle'>Live Sports Slot</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nesciunt reprehenderit amet ipsam ullam, sit maxime deleniti tempora dolorem pariatur voluptas tenetur at ut atque quisquam corrupti unde repellat omnis.</p>
-            <NavLink to={'/login'}><button className='py-2 px-5'>LOGIN</button></NavLink>
+             <NavLink to={'/login'}><button className='py-2 px-5'>LOGIN</button></NavLink>
         </div>
         <div className=" ">
             <div className=" mt-sm-5 mt-lg-0">

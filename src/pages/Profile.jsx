@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Form, Alert } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import '../assets/css/login.css'
 import useFetch from "../hooks/useFetch";
@@ -8,6 +8,8 @@ import BASE_URL from "../hooks/baseURL";
 import Spinner from "../components/Spinner";
 
 const Profile = () => {
+    let navigate = useNavigate();
+    let auth = localStorage.getItem("token");
     const {data:user} = useFetch(BASE_URL + "/user");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -79,6 +81,11 @@ const Profile = () => {
             setLoader(false);
         }
     }
+    useEffect(() => {
+        if (!auth) {
+          navigate("/login");
+        }
+      }, [navigate]);
 
     return (
         <div className="mb-5 px-2 py-5 d-flex flex-column  align-items-center">

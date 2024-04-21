@@ -10,7 +10,7 @@ const Register = () => {
         <>
             <div className="d-flex justify-content-center align-items-center mb-5">
 
-                <div style={{ background: '#431e77', color: '#d0c7dd', borderRadius: '50px' }} className="py-2 py-sm-5 px-3 logins">
+                <div style={{   background:'#2b3784',color: '#d0c7dd', borderRadius: '50px' }} className="py-2 py-sm-5 px-3 logins">
                     {/* <div className="d-flex justify-content-center logins">
                     <img src={logo} alt="" />
                 </div> */}
