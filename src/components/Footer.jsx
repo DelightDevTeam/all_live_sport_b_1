@@ -38,7 +38,7 @@ const Footer = () => {
         <div className=" ">
             <h2 className='mb-4 footerTitle'>Live Sports Slot</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nesciunt reprehenderit amet ipsam ullam, sit maxime deleniti tempora dolorem pariatur voluptas tenetur at ut atque quisquam corrupti unde repellat omnis.</p>
-             <NavLink to={'/login'}><button className='py-2 px-5'>LOGIN</button></NavLink>
+             {/* <NavLink to={'/login'}><button className='py-2 px-5'>LOGIN</button></NavLink> */}
         </div>
         <div className=" ">
             <div className=" mt-sm-5 mt-lg-0">
